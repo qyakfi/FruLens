@@ -13,6 +13,21 @@ lifecycleLivedataKtx = "2.8.7"
 lifecycleViewmodelKtx = "2.8.7"
 navigationFragmentKtx = "2.8.4"
 navigationUiKtx = "2.8.4"
+tensorflowLite = "2.13.0"
+tensorflowLiteMetadata = "2.13.0"
+tensorflowLiteMetadataVersion = "2.14.0"
+tensorflowLiteSupport = "2.13.0"
+tensorflowLiteSupportVersion = "2.14.0"
+tensorflowLiteTaskVision = "0.4.4"
+legacySupportV4 = "1.0.0"
+litertApi = "1.0.1"
+tensorflowLiteTaskVisionVersion = "2.13.0"
+tensorflowLiteVersion = "2.14.0"
+tensorflowTensorflowLite = "2.16.1"
+tensorflowTensorflowLiteTaskVision = "2.14.0"
+tensorflowTensorflowLiteVersion = "0.4.4"
+cameraView = "1.4.0"
+cameraLifecycle = "1.4.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -27,6 +42,24 @@ androidx-lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecy
 androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
 androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
 androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationUiKtx" }
+tensorflow-lite = { module = "org.tensorflow:tensorflow-lite", version.ref = "tensorflowLite" }
+tensorflow-lite-api = { module = "org.tensorflow:tensorflow-lite-api", version.ref = "tensorflowLite" }
+tensorflow-lite-metadata = { module = "org.tensorflow:tensorflow-lite-metadata", version.ref = "tensorflowLiteTaskVision" }
+tensorflow-lite-metadata-v2130 = { module = "org.tensorflow:tensorflow-lite-metadata", version.ref = "tensorflowLiteMetadata" }
+tensorflow-lite-metadata-v2140 = { module = "org.tensorflow:tensorflow-lite-metadata", version.ref = "tensorflowLiteMetadataVersion" }
+tensorflow-lite-runtime = { module = "org.tensorflow:tensorflow-lite-runtime" }
+tensorflow-lite-support = { module = "org.tensorflow:tensorflow-lite-support", version.ref = "tensorflowLiteTaskVision" }
+tensorflow-lite-support-v2130 = { module = "org.tensorflow:tensorflow-lite-support", version.ref = "tensorflowLiteSupport" }
+tensorflow-lite-support-v2140 = { module = "org.tensorflow:tensorflow-lite-support", version.ref = "tensorflowLiteSupportVersion" }
+tensorflow-lite-task-vision = { module = "org.tensorflow:tensorflow-lite-task-vision", version.ref = "tensorflowLiteTaskVision" }
+androidx-legacy-support-v4 = { group = "androidx.legacy", name = "legacy-support-v4", version.ref = "legacySupportV4" }
+tensorflow-lite-task-vision-v2130 = { module = "org.tensorflow:tensorflow-lite-task-vision", version.ref = "tensorflowLiteTaskVisionVersion" }
+tensorflow-lite-task-vision-v2140 = { module = "org.tensorflow:tensorflow-lite-task-vision", version.ref = "tensorflowTensorflowLiteTaskVision" }
+tensorflow-lite-v044 = { module = "org.tensorflow:tensorflow-lite", version.ref = "tensorflowTensorflowLiteVersion" }
+tensorflow-lite-v2140 = { module = "org.tensorflow:tensorflow-lite", version.ref = "tensorflowLiteVersion" }
+tensorflow-lite-v2161 = { module = "org.tensorflow:tensorflow-lite", version.ref = "tensorflowTensorflowLite" }
+androidx-camera-view = { group = "androidx.camera", name = "camera-view", version.ref = "cameraView" }
+androidx-camera-lifecycle = { group = "androidx.camera", name = "camera-lifecycle", version.ref = "cameraLifecycle" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
