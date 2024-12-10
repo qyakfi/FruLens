@@ -3,11 +3,19 @@ package com.deboo.frulens.ui.setting
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
 
-class SettingsViewModel : ViewModel() {
+class SettingsViewModel(private val pref: SettingsPreferences) : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is notifications Fragment"
+    fun getThemeSettings(): LiveData<Boolean> {
+        return pref.getThemeSetting().asLiveData() // Convert Flow to LiveData
     }
-    val text: LiveData<String> = _text
+
+    fun saveThemeSetting(isDarkModeActive: Boolean) {
+        viewModelScope.launch {
+            pref.saveThemeSetting(isDarkModeActive)
+        }
+    }
 }

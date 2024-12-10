@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("kotlin-parcelize")
+    id("kotlin-kapt")
 }
 
 android {
@@ -14,9 +16,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        ndk {
-            abiFilters.addAll(listOf("armeabi-v7a", "arm64-v8a", "x86", "x86_64"))
-        }
+        buildConfigField("String", "FRUIT_URL", "\"http://34.34.223.87:5000/\"")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -40,19 +40,8 @@ android {
     buildFeatures {
         viewBinding = true
         mlModelBinding = true
+        buildConfig = true
     }
-
-    packaging {
-        jniLibs.keepDebugSymbols.add("lib/arm64-v8a/libtask_vision_jni.so")
-        jniLibs.keepDebugSymbols.add("lib/armeabi-v7a/libtask_vision_jni.so")
-        jniLibs.keepDebugSymbols.add("lib/x86/libtask_vision_jni.so")
-        jniLibs.keepDebugSymbols.add("lib/x86_64/libtask_vision_jni.so")
-        jniLibs.keepDebugSymbols.add("lib/arm64-v8a/libtensorflowlite_jni.so")
-        jniLibs.keepDebugSymbols.add("lib/armeabi-v7a/libtensorflowlite_jni.so")
-        jniLibs.keepDebugSymbols.add("lib/x86/libtensorflowlite_jni.so")
-        jniLibs.keepDebugSymbols.add("lib/x86_64/libtensorflowlite_jni.so")
-    }
-
 }
 
 dependencies {
@@ -70,6 +59,14 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.androidx.activity.activity.ktx)
+    implementation(libs.retrofit2.retrofit)
+    implementation(libs.retrofit2.converter.gson)
+    implementation(libs.okhttp3.logging.interceptor)
+    implementation(libs.github.glide)
+    annotationProcessor(libs.glide.compiler)
+    implementation(libs.datastore.preferences)
+    implementation("androidx.camera:camera-camera2:1.4.0")
     //implementation(libs.androidx.core.splashscreen)
 
     // TensorFlow Lite dependencies

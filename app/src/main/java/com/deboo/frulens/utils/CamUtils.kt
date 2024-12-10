@@ -83,6 +83,16 @@ fun uriToFile(selectedImg: Uri, context: Context): File {
     return myFile
 }
 
+fun saveBitmapToCache(bitmap: Bitmap, context: Context): Uri {
+    val cacheDir = context.cacheDir
+    val file = File(cacheDir, "temp_image_${System.currentTimeMillis()}.jpg")
+    FileOutputStream(file).use { outputStream ->
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream)
+    }
+    return Uri.fromFile(file)
+}
+
+
 fun reduceFileImage(file: File): File {
     val bitmap = BitmapFactory.decodeFile(file.path)
     var compressQuality = 100

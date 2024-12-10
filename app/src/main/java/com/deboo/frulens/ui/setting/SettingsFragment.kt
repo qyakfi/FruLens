@@ -4,39 +4,63 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.Button
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import com.deboo.frulens.databinding.FragmentSettingBinding
+import androidx.fragment.app.viewModels
+import com.deboo.frulens.R
+import com.deboo.frulens.helper.SettingViewModelFactory
+import com.google.android.material.switchmaterial.SwitchMaterial
 
 class SettingsFragment : Fragment() {
 
-    private var _binding: FragmentSettingBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        val settingsViewModel =
-            ViewModelProvider(this).get(SettingsViewModel::class.java)
-
-        _binding = FragmentSettingBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
-        val textView: TextView = binding.textNotifications
-        settingsViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
-        return root
+    private lateinit var switchTheme: SwitchMaterial
+    private val settingViewModel: SettingsViewModel by viewModels {
+        SettingViewModelFactory(SettingsPreferences.getInstance(requireContext().dataStore))
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        val view = inflater.inflate(R.layout.fragment_setting, container, false)
+        switchTheme = view.findViewById(R.id.switch_theme)
+
+        // Observe theme settings and update switch
+        settingViewModel.getThemeSettings().observe(viewLifecycleOwner) { isDarkModeActive ->
+            switchTheme.isChecked = isDarkModeActive
+            setTheme(isDarkModeActive) // Set theme based on the saved setting
+        }
+
+        // Handle switch toggle
+        switchTheme.setOnCheckedChangeListener { _, isChecked ->
+            settingViewModel.saveThemeSetting(isChecked) // Save new theme setting
+            setTheme(isChecked) // Update theme immediately
+        }
+
+        val setAcc: Button = view.findViewById(R.id.SetAcBtn)
+        setAcc.setOnClickListener {
+            // Handle image button click
+            Toast.makeText(requireContext(), "Setting Account button clicked!", Toast.LENGTH_SHORT).show()
+        }
+
+        val out: Button = view.findViewById(R.id.btn_out)
+        out.setOnClickListener {
+            // Handle image button click
+            Toast.makeText(requireContext(), "Sign Out button clicked!", Toast.LENGTH_SHORT).show()
+        }
+
+        return view
+    }
+
+    private fun setTheme(isDarkMode: Boolean) {
+        // Set the appropriate theme based on the switch state
+        if (isDarkMode) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
     }
 }

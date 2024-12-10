@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="670dp"
+    android:layout_height="720dp"
     android:layout_margin="6dp"
     tools:context=".ui.analyze.AnalyzeFragment">
 
@@ -86,6 +86,8 @@
                 android:background="@drawable/roundedbg"
                 app:layout_constraintTop_toBottomOf="@id/analyzeButton"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
                 android:orientation="vertical">
 
                 <TextView

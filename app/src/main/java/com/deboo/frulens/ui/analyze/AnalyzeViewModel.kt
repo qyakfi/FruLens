@@ -12,4 +12,8 @@ class AnalyzeViewModel : ViewModel() {
     }
     val text: LiveData<String> = _text
     var currentImageUri: Uri? = null
+    private val message = MutableLiveData<String>()
+    fun getMessage(): LiveData<String> {
+        return message
+    }
 }
