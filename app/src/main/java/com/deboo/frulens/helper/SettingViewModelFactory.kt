@@ -2,7 +2,7 @@ package com.deboo.frulens.helper
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.deboo.frulens.ui.setting.SettingsPreferences
+import com.deboo.frulens.data.SettingsPreferences
 import com.deboo.frulens.ui.setting.SettingsViewModel
 
 class SettingViewModelFactory(private val pref: SettingsPreferences) : ViewModelProvider.NewInstanceFactory() {

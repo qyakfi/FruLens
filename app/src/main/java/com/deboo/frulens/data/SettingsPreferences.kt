@@ -1,4 +1,4 @@
-package com.deboo.frulens.ui.setting
+package com.deboo.frulens.data
 
 import android.content.Context
 import androidx.datastore.core.DataStore

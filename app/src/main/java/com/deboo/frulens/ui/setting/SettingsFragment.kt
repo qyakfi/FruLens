@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.deboo.frulens.R
+import com.deboo.frulens.data.SettingsPreferences
+import com.deboo.frulens.data.dataStore
 import com.deboo.frulens.helper.SettingViewModelFactory
 import com.google.android.material.switchmaterial.SwitchMaterial
 

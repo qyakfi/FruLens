@@ -1,5 +1,6 @@
 package com.deboo.frulens
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -10,11 +11,12 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.ViewModelProvider
 import com.deboo.frulens.helper.SettingViewModelFactory
-import com.deboo.frulens.ui.setting.SettingsPreferences
+import com.deboo.frulens.data.SettingsPreferences
 import com.deboo.frulens.ui.setting.SettingsViewModel
-import com.deboo.frulens.ui.setting.dataStore
+import com.deboo.frulens.data.dataStore
 import com.deboo.frulens.ui.signin.SignInActivity
 
+@SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,6 +49,6 @@ class SplashActivity : AppCompatActivity() {
             // Navigate to MainActivity
             startActivity(Intent(this, SignInActivity::class.java))
             finish()
-        }, 2000)
+        }, 3000)
     }
 }

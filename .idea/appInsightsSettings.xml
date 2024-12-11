@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.deboo.frulens" />
+                  <option name="mobileSdkAppId" value="1:594779201902:android:6422476400b56a9c82617f" />
+                  <option name="projectId" value="capstone-442805" />
+                  <option name="projectNumber" value="594779201902" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

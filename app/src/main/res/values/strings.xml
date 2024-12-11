@@ -50,6 +50,7 @@
     <string name="categories">Category 1, Category 2</string>
     <string name="recipes">Here are some fruit recipes you might like, offering delicious and healthy ways to enjoy your favorite fruits!</string>
     <string name="title_recipes">Recipes</string>
+    <string name="open_camera">Open Camera</string>
     <string-array name="data_name">
         <item>Aan Andiyana Sandi</item>
         <item>Ilmal Yakin Nurahman</item>
