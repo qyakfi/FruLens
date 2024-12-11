@@ -5,6 +5,7 @@ import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.deboo.frulens.MainActivity
@@ -67,8 +68,14 @@ class SignInActivity : AppCompatActivity() {
         }
 
         bind.btnLogin.setOnClickListener {
-            // Call the ViewModel to perform login
-            loginViewModel.loginUser()
+            val email = bind.etEmail.text.toString()
+            val password = bind.etPassword.text.toString()
+
+            if (email.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this, "Please fill in both fields", Toast.LENGTH_SHORT).show()
+            } else {
+                loginViewModel.loginUser(email, password)
+            }
         }
     }
 }
