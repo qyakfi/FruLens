@@ -27,14 +27,18 @@
     <string name="image_preview">Image Preview</string>
     <string name="line">|</string>
     <string name="no_serving">No serving data available.</string>
-    <string name="failfetch">"Failed to fetch nutrition data. Please try again."</string>
+    <string name="failfetch">"Failed to fetch nutrition data. Please check your internet connection and try again!"</string>
 
 
-    <string name="welcome">Discover your fruits\' nutritional secrets with just a scan. Open \'Analyze\' Menu to try it now and start making smarter, healthier choices today!</string>
+    <string name="welcome">Discover your fruits\' nutritional secrets with just a scan.
+        Start making smarter, healthier choices today!</string>
     <string name="articles">Articles\n</string>
     <string name="about_us">About Us</string>
 
     <string name="team_name">Member\'s name</string>
+    <string name="team_description">
+        We are Team C242-PS525 focused on "Health Innovation: Empowering Vulnerable Communities for Health and Well-being."
+        Through our project, FruLens, we use AI to promote healthier lifestyles and empower informed choices.</string>"
     <string name="description">Deskripsi</string>
     <string-array name="data_name">
         <item>Aan Andiyana Sandi</item>
@@ -45,12 +49,24 @@
         <item>Rifdah Naasyiah</item>
     </string-array>
     <string-array name="data_description">
-        <item>Machine Learning Cohort(M418B4KY0006)</item>
-        <item>Machine Learning Cohort(M418B4KY1951)</item>
-        <item>Cloud Computing Cohort(C575B4KX2274)</item>
-        <item>Mobile Development Cohort(A117B4KY2583)</item>
-        <item>Machine Learning Cohort(M418B4KY3829)</item>
-        <item>Cloud Computing Cohort(C575B4KX3839)</item>
+        <item>ML Cohort (M418B4KY0006)\n
+            Email: aanandiyana66@gmail.com\n
+            IG: @aan_andiyana_s31</item>
+        <item>ML Cohort (M418B4KY1951)\n
+            Email: ilmalyakinnurahman@gmail.com\n
+            IG: @ilmalyakin_n</item>
+        <item>CC Cohort (C575B4KX2274)\n
+            Email: dwiyantilinaa@gmail.com\n
+            IG: @mbananalina_</item>
+        <item>MD Cohort (A117B4KY2583)\n
+            Email: qyakfi@gmail.com\n
+            IG: @qyakfi</item>
+        <item>ML Cohort (M418B4KY3829)\n
+            Email: ridwangithub@gmail.com\n
+            IG : @ridwan.__f</item>
+        <item>CC Cohort (C575B4KX3839)\n
+            Email: rifdahnsyh@gmail.com\n
+            IG: @rifdahnsyh_21</item>
     </string-array>
     <integer-array name="data_photo">
         <item>@drawable/logo1</item>

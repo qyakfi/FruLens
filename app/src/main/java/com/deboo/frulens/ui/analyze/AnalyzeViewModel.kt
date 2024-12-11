@@ -4,6 +4,7 @@ import android.net.Uri
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.deboo.frulens.data.Serving
 
 class AnalyzeViewModel : ViewModel() {
 
@@ -12,8 +13,7 @@ class AnalyzeViewModel : ViewModel() {
     }
     val text: LiveData<String> = _text
     var currentImageUri: Uri? = null
-    private val message = MutableLiveData<String>()
-    fun getMessage(): LiveData<String> {
-        return message
-    }
+    var servedata:String = ""
+    var identification = ""
+    var otherservedata: List<Serving> = emptyList()
 }

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="720dp"
+    android:layout_height="match_parent"
     android:layout_margin="6dp"
     tools:context=".ui.analyze.AnalyzeFragment">
 
@@ -34,16 +34,11 @@
                 android:id="@+id/previewImageView"
                 android:layout_width="250dp"
                 android:layout_height="250dp"
-                android:layout_marginEnd="72dp"
                 android:contentDescription="@string/image_preview"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintLeft_toRightOf="parent"
-                app:layout_constraintRight_toLeftOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 app:srcCompat="@drawable/ic_place_holder"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteY="0dp" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints" />
 
             <Button
                 android:id="@+id/galleryButton"
@@ -86,6 +81,7 @@
                 android:background="@drawable/roundedbg"
                 app:layout_constraintTop_toBottomOf="@id/analyzeButton"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:orientation="vertical">
@@ -104,7 +100,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"/>
                 <TextView
-                    android:id="@+id/text_dashboard"
+                    android:id="@+id/resAnalyze"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"

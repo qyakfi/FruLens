@@ -30,14 +30,18 @@ class SettingsFragment : Fragment() {
 
         // Observe theme settings and update switch
         settingViewModel.getThemeSettings().observe(viewLifecycleOwner) { isDarkModeActive ->
-            switchTheme.isChecked = isDarkModeActive
-            setTheme(isDarkModeActive) // Set theme based on the saved setting
+            if (isDarkModeActive) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                switchTheme.isChecked = true
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                switchTheme.isChecked = false
+            }
         }
 
         // Handle switch toggle
         switchTheme.setOnCheckedChangeListener { _, isChecked ->
-            settingViewModel.saveThemeSetting(isChecked) // Save new theme setting
-            setTheme(isChecked) // Update theme immediately
+            settingViewModel.saveThemeSetting(isChecked)
         }
 
         val setAcc: Button = view.findViewById(R.id.SetAcBtn)
@@ -53,14 +57,5 @@ class SettingsFragment : Fragment() {
         }
 
         return view
-    }
-
-    private fun setTheme(isDarkMode: Boolean) {
-        // Set the appropriate theme based on the switch state
-        if (isDarkMode) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-        } else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-        }
     }
 }

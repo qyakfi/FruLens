@@ -87,6 +87,11 @@ class AnalyzeFragment : Fragment() {
             binding.previewImageView.setImageURI(it)
         }
     }
+    private fun showResults(results: String?) {
+        results?.let {
+            binding.resAnalyze.text = it
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -98,12 +103,20 @@ class AnalyzeFragment : Fragment() {
         _binding = FragmentAnalyzeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textDashboard
-        analyzeViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+        val textView: TextView = binding.textResult
+        if (analyzeViewModel.servedata != ""){
+            binding.textResult.text = getString(R.string.result)
+        }else{
+            analyzeViewModel.text.observe(viewLifecycleOwner) {
+                textView.text = it
+            }
         }
         analyzeViewModel.currentImageUri?.let { uri ->
             showImage(uri)
+        }
+        analyzeViewModel.servedata.let { results ->
+            showResults(results)
+            binding.textResult.text = getString(R.string.result)
         }
 
         imageClassifierHelper = ImageClassifierHelper(
@@ -164,7 +177,7 @@ class AnalyzeFragment : Fragment() {
     }
 
     fun onResults(results: List<Classifications>?, inferenceTime: Long) {
-        binding.progressIndicator.visibility = View.GONE
+        showLoading(false)
         results?.let {
             var concLabel = ""
             var highscore = 0f
@@ -181,7 +194,7 @@ class AnalyzeFragment : Fragment() {
                 }
             }
 
-            val resultString = ("Conclusion: Identified $concLabel $highscore%" +
+            viewModel.identification = ("Conclusion: Identified $concLabel $highscore%" +
                     "\n" +
                     "Inference Time: $inferenceTime ms")
 
@@ -208,7 +221,7 @@ class AnalyzeFragment : Fragment() {
                 val otherServings = response.servings.drop(1) // Store other servings
 
                 primaryServing?.let { serving ->
-                    val primaryInfo = """
+                    viewModel.servedata = """
                     Food: ${response.food_name}
                     Serving: ${serving.serving_description}
                     Calories: ${serving.calories} kcal
@@ -221,20 +234,22 @@ class AnalyzeFragment : Fragment() {
                     Calcium: ${serving.calcium} mg
                 """.trimIndent()
 
-                    binding.textDashboard.text = primaryInfo
+                    showResults(viewModel.servedata)
+                    binding.textResult.text = getString(R.string.result)
                 } ?: run {
-                    binding.textDashboard.text = getString(R.string.no_serving)
+                    binding.resAnalyze.text = getString(R.string.no_serving)
                 }
 
                 // Process and store other servings for future use
                 if (otherServings.isNotEmpty()) {
+                    viewModel.otherservedata = otherServings
                     processOtherServings(otherServings)
                 }
 
             } catch (e: Exception) {
                 e.printStackTrace()
                 showLoading(false) // Hide loading in case of error
-                binding.textDashboard.text = getString(R.string.failfetch)
+                binding.textResult.text = getString(R.string.failfetch)
             }
         }
     }

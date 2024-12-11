@@ -26,6 +26,6 @@ class SplashActivity : AppCompatActivity() {
             // Navigate to MainActivity
             startActivity(Intent(this, SignInActivity::class.java))
             finish()
-        }, 3000)
+        }, 2000)
     }
 }
