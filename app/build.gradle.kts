@@ -17,6 +17,7 @@ android {
         versionName = "1.0"
 
         buildConfigField("String", "FRUIT_URL", "\"http://34.34.223.87:5000/\"")
+        buildConfigField("String", "ARTICLES_URL", "\"https://capstone-442805.et.r.appspot.com/\"")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

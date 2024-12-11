@@ -32,14 +32,24 @@
 
     <string name="welcome">Discover your fruits\' nutritional secrets with just a scan.
         Start making smarter, healthier choices today!</string>
-    <string name="articles">Articles\n</string>
+    <string name="articles">Articles</string>
     <string name="about_us">About Us</string>
 
     <string name="team_name">Member\'s name</string>
     <string name="team_description">
         We are Team C242-PS525 focused on "Health Innovation: Empowering Vulnerable Communities for Health and Well-being."
         Through our project, FruLens, we use AI to promote healthier lifestyles and empower informed choices.</string>"
-    <string name="description">Deskripsi</string>
+    <string name="description">Description</string>
+    <string name="recipe_title">Recipe Title</string>
+    <string name="timeserving">Preparation Time: x minutes | Serving: x</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="ingredientlist">• Ingredient 1\n• Ingredient 2\n• Ingredient 3</string>
+    <string name="steps">Steps</string>
+    <string name="stepslist">1. Step 1 description.\n2. Step 2 description.\n3. Step 3 description.</string>
+    <string name="category">Category</string>
+    <string name="categories">Category 1, Category 2</string>
+    <string name="recipes">Here are some fruit recipes you might like, offering delicious and healthy ways to enjoy your favorite fruits!</string>
+    <string name="title_recipes">Recipes</string>
     <string-array name="data_name">
         <item>Aan Andiyana Sandi</item>
         <item>Ilmal Yakin Nurahman</item>
