@@ -16,7 +16,6 @@ import com.deboo.frulens.ui.setting.SettingsViewModel
 import com.deboo.frulens.data.dataStore
 import com.deboo.frulens.ui.signin.SignInActivity
 
-@SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

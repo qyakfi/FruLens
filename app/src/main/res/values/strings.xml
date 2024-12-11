@@ -51,6 +51,11 @@
     <string name="recipes">Here are some fruit recipes you might like, offering delicious and healthy ways to enjoy your favorite fruits!</string>
     <string name="title_recipes">Recipes</string>
     <string name="open_camera">Open Camera</string>
+    <string name="change_password">Change Password</string>
+    <string name="update_password">Update Password</string>
+    <string name="confirm_new_password">Confirm New Password</string>
+    <string name="new_password">New Password</string>
+    <string name="old_password">Old Password</string>
     <string-array name="data_name">
         <item>Aan Andiyana Sandi</item>
         <item>Ilmal Yakin Nurahman</item>

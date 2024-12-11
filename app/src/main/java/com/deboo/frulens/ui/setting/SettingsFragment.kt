@@ -1,5 +1,6 @@
 package com.deboo.frulens.ui.setting
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,11 +10,16 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.deboo.frulens.R
+import com.deboo.frulens.data.LoginPreferences
 import com.deboo.frulens.data.SettingsPreferences
 import com.deboo.frulens.data.dataStore
+import com.deboo.frulens.data.loginDataStore
 import com.deboo.frulens.helper.SettingViewModelFactory
+import com.deboo.frulens.ui.signin.SignInActivity
 import com.google.android.material.switchmaterial.SwitchMaterial
+import kotlinx.coroutines.launch
 
 class SettingsFragment : Fragment() {
 
@@ -48,16 +54,32 @@ class SettingsFragment : Fragment() {
 
         val setAcc: Button = view.findViewById(R.id.SetAcBtn)
         setAcc.setOnClickListener {
-            // Handle image button click
-            Toast.makeText(requireContext(), "Setting Account button clicked!", Toast.LENGTH_SHORT).show()
+            val intent = Intent(requireContext(), AccountSettingsActivity::class.java)
+            startActivity(intent)
         }
 
         val out: Button = view.findViewById(R.id.btn_out)
         out.setOnClickListener {
-            // Handle image button click
-            Toast.makeText(requireContext(), "Sign Out button clicked!", Toast.LENGTH_SHORT).show()
+            // Handle sign-out button click
+            signOut()
+        }
+        return view
+    }
+    private fun signOut() {
+        // Clear login status from DataStore
+        val loginPreferences = LoginPreferences.getInstance(requireContext().loginDataStore)
+        lifecycleScope.launch {
+            loginPreferences.saveStatus(false) // Set login status to false
         }
 
-        return view
+        // Show a Toast message indicating that the user has been signed out
+        Toast.makeText(requireContext(), "You have been signed out!", Toast.LENGTH_SHORT).show()
+
+        // Redirect to the SignInActivity (login screen)
+        val intent = Intent(requireContext(), SignInActivity::class.java)
+        startActivity(intent)
+
+        // Optional: Finish the current activity (if needed)
+        requireActivity().finish()
     }
 }
